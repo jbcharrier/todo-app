@@ -12,6 +12,11 @@ import { ApiService } from './api.service';
 import { AppRoutingModule } from './app-routing.module';
 import { TodosComponent } from './todos/todos.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MdInputModule } from '@angular/material';
+import { MdDialogModule } from '@angular/material';
+import { MdButtonModule } from '@angular/material';
+import { TodoDateDialogComponent } from './todo-date-dialog/todo-date-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,15 +26,21 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     TodoListItemComponent,
     TodoListFooterComponent,
     TodosComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    TodoDateDialogComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MdInputModule,
+    MdDialogModule,
+    MdButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [TodoDataService, ApiService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TodoDateDialogComponent]
 })
 export class AppModule { }

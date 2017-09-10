@@ -2,22 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Todo } from './../todo';
 import { TodoDataService } from './../todo-data.service';
-
+import { MdDialog } from '@angular/material';
+import { TodoDateDialogComponent } from './../todo-date-dialog/todo-date-dialog.component';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css'],
   providers: [TodoDataService]
-
 })
 export class TodosComponent implements OnInit {
-
 
   todos: Todo[] = [];
 
   constructor(private todoDataService: TodoDataService,
-              private route: ActivatedRoute){
+              private route: ActivatedRoute,
+              public dialog: MdDialog){
 
   }
 
@@ -29,6 +29,16 @@ export class TodosComponent implements OnInit {
           this.todos = todos;
         }
       )
+  }
+
+  openDateDialog(todo) {
+    let dialogRef = this.dialog.open(TodoDateDialogComponent, {
+      width: '250px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      todo.date = result;
+      this.onAddTodo(todo);
+    })
   }
 
   onAddTodo(todo) {

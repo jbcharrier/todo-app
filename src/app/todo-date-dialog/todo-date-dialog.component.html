@@ -1,0 +1,9 @@
+<h2 md-dialog-title>Date</h2>
+<md-dialog-content>Before when ? (optional)</md-dialog-content>
+<md-form-field>
+  <input mdInput tabindex="1" [(ngModel)]="todoDate">
+</md-form-field>
+<md-dialog-actions>
+  <button md-raised-button [md-dialog-close]="todoDate">Validate</button>
+</md-dialog-actions>
+

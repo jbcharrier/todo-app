@@ -1,3 +1,10 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "title": "Test",
+      "complete": false,
+      "date": "Today",
+      "id": 1
+    }
+  ]
 }
